@@ -9,6 +9,8 @@ const Home: NextPage = () => {
         <meta name="description" content="Generated br create next app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      Bem vindo <br />
+      <button className="button is-info is-rounded">Clika me</button>
     </div>
   )
 }
