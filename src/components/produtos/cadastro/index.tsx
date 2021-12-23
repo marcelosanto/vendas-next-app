@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import type { NextPage } from 'next'
 
-import { Layout } from 'components'
+import { Layout, Input } from 'components'
 
 export const Cadastro: NextPage = () => {
-  const [sku, setSku] = useState('')
-  const [preco, setPreco] = useState('')
-  const [nome, setNome] = useState('')
-  const [descricao, setDescricao] = useState('')
+  const [sku, setSku] = useState<string>('')
+  const [preco, setPreco] = useState<string>('')
+  const [nome, setNome] = useState<string>('')
+  const [descricao, setDescricao] = useState<string>('')
 
   const handleSubmit = () => {
     const produto = {
@@ -23,53 +23,33 @@ export const Cadastro: NextPage = () => {
   return (
     <Layout titulo="Produtos">
       <div className="columns">
-        <div className="column  field">
-          <label className="label" htmlFor="inputSku">
-            SKU: *
-          </label>
-          <div className="control">
-            <input
-              id="inputSku"
-              value={sku}
-              onChange={(e) => setSku(e.target.value)}
-              type="text"
-              className="input"
-              placeholder="Digite o SKU do produto"
-            />
-          </div>
-        </div>
-        <div className="column field">
-          <label className="label" htmlFor="inputPreco">
-            Preço: *
-          </label>
-          <div className="control">
-            <input
-              id="inputPreco"
-              value={preco}
-              onChange={(e) => setPreco(e.target.value)}
-              type="text"
-              className="input"
-              placeholder="Digite o Preço do produto"
-            />
-          </div>
-        </div>
+        <Input
+          label="SKU"
+          id="inputSku"
+          value={sku}
+          onChange={setSku}
+          placeholder="Digite o SKU do produto"
+          columnClasses="is-half"
+        />
+        <Input
+          label="Preço"
+          id="inputPreco"
+          value={preco}
+          onChange={setPreco}
+          placeholder="Digite o Preço do produto"
+          columnClasses="is-half"
+        />
       </div>
+
       <div className="columns">
-        <div className="field column">
-          <label className="label" htmlFor="inputNome">
-            Nome: *
-          </label>
-          <div className="control">
-            <input
-              id="inputNome"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-              type="text"
-              className="input"
-              placeholder="Digite o Nome do produto"
-            />
-          </div>
-        </div>
+        <Input
+          label="Nome"
+          id="inputNome"
+          value={nome}
+          onChange={setNome}
+          placeholder="Digite o Nome do produto"
+          columnClasses="is-full"
+        />
       </div>
       <div className="columns">
         <div className="field column">
